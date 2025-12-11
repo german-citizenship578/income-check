@@ -86,7 +86,7 @@
   }
 
   function formatEuroPlain(n) {
-    return n.toFixed(2);
+    return Math.round(n).toString();
   }
 
   function calc() {
@@ -119,12 +119,12 @@
     const diffAbs = Math.abs(diffRaw);
 
     let line2;
-    if (Math.abs(diffRaw) < 0.005) {
+    if (Math.abs(diffRaw) < 0.5) {
       line2 = "Income is exactly at the threshold.";
     } else if (diffRaw > 0) {
-      line2 = "Income is " + formatEuroPlain(diffAbs) + " Euro above the threshold.";
+      line2 = "Income is " + formatEuroPlain(diffAbs) + " € above the threshold.";
     } else {
-      line2 = "Income is " + formatEuroPlain(diffAbs) + " Euro below the threshold.";
+      line2 = "Income is " + formatEuroPlain(diffAbs) + " € below the threshold.";
     }
 
     const statusText = ok ? "You can get German citizenship" : "You can not get German citizenship";
@@ -149,4 +149,3 @@
 </script>
 </body>
 </html>
-
