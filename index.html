@@ -17,12 +17,10 @@
     }
     .full { grid-column: 1 / -1; }
     .results { margin-top: 18px; padding: 14px; background:#f3f6ff; border-radius: 10px; }
-    .row { display:flex; justify-content: space-between; gap: 12px; padding: 4px 0; }
     .status-line { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
     .status-ok { color:#0a7a2f; font-weight:600; }
     .status-bad { color:#b00020; font-weight:600; }
     .icon { font-size:18px; }
-    .small { font-size: 12px; color:#666; margin-top: 10px; }
     @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -77,11 +75,6 @@
       </div>
 
       <div class="results" id="results"></div>
-
-      <div class="small">
-        Threshold = 563 + 449 × spouse (1 if married, 0 if not) + 357 × children 0-5 + 390 × children 6-13 + 471 × children 14-17 + 451 × adult children.  
-        Adjusted income = your income + spouse income − rent.
-      </div>
     </div>
   </div>
 
@@ -94,10 +87,6 @@
 
   function formatEuroPlain(n) {
     return n.toFixed(2);
-  }
-
-  function formatEuroSymbol(n) {
-    return new Intl.NumberFormat('de-DE', { style:'currency', currency:'EUR' }).format(n);
   }
 
   function calc() {
@@ -148,12 +137,6 @@
         <span>${statusText}</span>
       </div>
       <div>${line2}</div>
-      <div class="row" style="margin-top:10px;">
-        <span>Adjusted income</span><strong>${formatEuroSymbol(adjustedIncome)}</strong>
-      </div>
-      <div class="row">
-        <span>Threshold</span><strong>${formatEuroSymbol(threshold)}</strong>
-      </div>
     `;
   }
 
